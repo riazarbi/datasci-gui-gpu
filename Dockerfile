@@ -25,7 +25,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 
 # Install packages
-RUN python3 -m pip install torch torchvision fastai
+RUN python3 -m pip install --upgrade torch torchvision fastai \
+ && python3 -m pip install --upgrade tensorflow \
+ && python3 -m pip install --upgrade Keras
 
 USER $NB_USER
 
