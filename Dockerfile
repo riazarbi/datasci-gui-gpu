@@ -27,7 +27,18 @@ RUN DEBIAN_FRONTEND=noninteractive \
 # Install packages
 RUN python3 -m pip install --upgrade torch torchvision fastai \
  && python3 -m pip install --upgrade tensorflow \
- && python3 -m pip install --upgrade Keras
+ && python3 -m pip install --upgrade Keras \
+ && python3 -m pip install --upgrade scikit-image \
+ && python3 -m pip3 install --upgrade xgboost \
+ && python3 -m pip install  --upgrade catboost \
+ && python3 -m pip install  --upgrade plotly==4.13.0 \
+ && python3 -m pip install  --upgrade opencv-contrib-python \
+ && python3 -m pip install  --upgrade geopandas \
+ && python3 -m pip install  --upgrade pymc3 \
+ && python3 -m pip install -q tensorflow_data_validation[visualization] \
+ && python3 -m pip install  --upgrade  imutils \
+ && python3 -m pip install  --upgrade  rioxarray \
+ && python3 -m pip install  --upgrade  earthpy
 
 USER $NB_USER
 
