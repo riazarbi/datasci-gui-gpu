@@ -29,7 +29,7 @@ RUN python3 -m pip install --upgrade torch torchvision fastai \
  && python3 -m pip install --upgrade tensorflow \
  && python3 -m pip install --upgrade Keras \
  && python3 -m pip install --upgrade scikit-image \
- && python3 -m pip3 install --upgrade xgboost \
+ && python3 -m pip install --upgrade xgboost \
  && python3 -m pip install  --upgrade catboost \
  && python3 -m pip install  --upgrade plotly==4.13.0 \
  && python3 -m pip install  --upgrade opencv-contrib-python \
