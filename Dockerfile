@@ -23,6 +23,11 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update && \
   apt-get install -y nvidia-opencl-icd-340 nvidia-opencl-dev
 
+# Delyno's request - can clean up later
+RUN add-apt-repository ppa:ubuntugis/ppa \
+ && apt-get update \
+ && apt-get install python-numpy gdal-bin libgdal-dev
+ && pip install rasterio descartes
 
 # Install packages
 RUN python3 -m pip install --upgrade torch torchvision fastai \
