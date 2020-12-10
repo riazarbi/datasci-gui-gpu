@@ -13,9 +13,9 @@ COPY cuda_setup.sh .
 RUN bash cuda_setup.sh
 
 # Software Properties Common for apt-add-repository
-RUN DEBIAN_FRONTEND=noninteractive \
-  apt-get update && \
-  apt-get install -y software-properties-common
+#RUN DEBIAN_FRONTEND=noninteractive \
+#  apt-get update && \
+#  apt-get install -y software-properties-common
 
 # OpenCL
 # POCL
@@ -29,8 +29,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt-get install -y nvidia-opencl-icd-340 nvidia-opencl-dev
 
 # Delyno's request - can clean up later
-RUN add-apt-repository ppa:ubuntugis/ppa \
- && apt-get update \
+#RUN add-apt-repository ppa:ubuntugis/ppa \
+RUN apt-get update \
  && apt-get install python-numpy gdal-bin libgdal-dev \
  && pip install rasterio descartes
 
