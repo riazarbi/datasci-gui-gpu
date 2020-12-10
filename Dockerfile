@@ -12,6 +12,11 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 COPY cuda_setup.sh .
 RUN bash cuda_setup.sh
 
+# Software Properties Common for apt-add-repository
+RUN DEBIAN_FRONTEND=noninteractive \
+  apt-get update && \
+  apt-get install -y software-properties-common
+
 # OpenCL
 # POCL
 RUN DEBIAN_FRONTEND=noninteractive \
