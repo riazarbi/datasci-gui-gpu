@@ -31,7 +31,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
 # Delyno's request - can clean up later
 #RUN add-apt-repository ppa:ubuntugis/ppa \
 RUN apt-get update \
- && apt-get install python-numpy gdal-bin libgdal-dev \
+ && apt-get install -y python-numpy gdal-bin libgdal-dev \
  && pip install rasterio descartes
 
 # Install packages
