@@ -9,24 +9,29 @@ USER root
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
-COPY cuda_setup.sh .
-RUN bash cuda_setup.sh
+#COPY cuda_setup.sh .
+#RUN bash cuda_setup.sh
 
 # Software Properties Common for apt-add-repository
 #RUN DEBIAN_FRONTEND=noninteractive \
 #  apt-get update && \
 #  apt-get install -y software-properties-common
 
+# CUDA Toolkit
+RUN DEBIAN_FRONTEND=noninteractive \
+  apt-get update && \
+  apt-get install -y nvidia-cuda-toolkit
+
 # OpenCL
 # POCL
-RUN DEBIAN_FRONTEND=noninteractive \
-  apt-get update && \
-  apt-get install -y pocl-opencl-icd opencl-headers clinfo
+#RUN DEBIAN_FRONTEND=noninteractive \
+#  apt-get update && \
+#  apt-get install -y pocl-opencl-icd opencl-headers clinfo 
 
 # Nvidia ICD
-RUN DEBIAN_FRONTEND=noninteractive \
-  apt-get update && \
-  apt-get install -y nvidia-opencl-icd-340 nvidia-opencl-dev
+#RUN DEBIAN_FRONTEND=noninteractive \
+#  apt-get update && \
+#  apt-get install -y nvidia-opencl-icd-340 nvidia-opencl-dev
 
 # Delyno's request - can clean up later
 #RUN add-apt-repository ppa:ubuntugis/ppa \
